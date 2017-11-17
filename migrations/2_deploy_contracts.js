@@ -11,26 +11,24 @@ module.exports = function(deployer) {
   var beneficiary = "0xEa5bd9FD61954561EaE7E6890e44BFe5831fEBE7";
   var multiSig = "0x40DA434B0d32BD04896c6723E41E4c9840d36342";
 
- /* deployer.deploy(HumanStandardToken, 500000000, "DREAM", 18, "DREAM")
+ deployer.deploy(HumanStandardToken, 500000000, "DREAM", 18, "DREAM")
   .then(function () {
-    return deployer.deploy(MiniMeToken,Crowdsale, HumanStandardToken.address, startTime, endTime, softCap, hardCap, beneficiary, multiSig)
+    return deployer.deploy(Crowdsale, HumanStandardToken.address, startTime, endTime, softCap, hardCap, beneficiary, multiSig)
   }).then(function() {
     console.log("Done deploying");
-  }); */
+  }); 
 
 deployer.deploy(MiniMeTokenFactory)
 .then(function() {
-  return deployer.deploy(MiniMeTokenFactory.address ,"0x0", 0, "TEST",3,"TST", true)
+  return deployer.deploy(MiniMeToken, MiniMeTokenFactory.address ,"0x0", 0, "DREAM",18,"DREAM", true)
 }).then(function(){
   console.log("Done");
 });
 
 
-  //deployer.deploy(MiniMeTokenFactory);
-
-  //MiniMeTokenFactory.deployed().then(contract => { deployer.deploy("address","0x0", 0, "TEST",3,"TST", true) }); //... call contract.deployFunction here })
-
 }
+
+
 
 
 
