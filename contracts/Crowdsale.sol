@@ -16,6 +16,13 @@ contract Crowdsale is Ownable, Pausable {
   uint256 public weiRaised;
   uint256 public TOKEN_FOR_ONE_ETH = 2000;
 
+  //Modifier for tiers - testing
+  modifier onlyTierOne(address _address, uint _time) { 
+    if (now >= _time) throw; 
+    _; 
+  }
+  
+
   mapping(address => uint256) public deposited;
   event TokensPurchased(address indexed _to, uint256 _tokens);
 
